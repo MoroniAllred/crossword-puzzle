@@ -1,11 +1,32 @@
-import React from "react"
+import React, { Component } from 'react';
+import axios from "axios";
+import './App.css';
 
-const App = () => {
-    return(
-        <div>
-            
-        </div>
-    )
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            word: ""
+        }
+    }
+
+    getWord = () => {
+        axios.get("/word")
+        .then(response => {
+            this.setState({word: response.data})
+            return response.data
+        })
+    }
+    render() { 
+        console.log(this.state.word)
+        return ( 
+            <div>
+                <h1 className="word" onClick={this.getWord}>
+                    {this.state.word}
+                </h1>
+            </div>
+         );
+    }
 }
-
-export default App
+ 
+export default App;

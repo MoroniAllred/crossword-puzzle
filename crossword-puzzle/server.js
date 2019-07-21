@@ -11,7 +11,7 @@ mongoose.connect("mongodb://localhost:27017/wordDb",
 {
     useNewUrlParser: true
 })
-.then(() => console.log("conected to the wordDb"))
+.then(() => console.log("connected to the database"))
 .catch(err => console.log(err))
 
 app.use("/word", require("./routes/wordRouter"))
