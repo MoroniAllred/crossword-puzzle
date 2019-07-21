@@ -17,6 +17,7 @@ class App extends Component {
             return response.data
         })
     }
+    
     render() { 
         console.log(this.state.word)
         return ( 
