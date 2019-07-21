@@ -3,7 +3,7 @@ import axios from "axios";
 import './App.css';
 
 class App extends Component {
-    constructor(props) {
+    construcchetor(props) {
         super(props);
         this.state = { 
             word: ""
