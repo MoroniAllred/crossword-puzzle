@@ -13,11 +13,18 @@ wordRouter.route("/")
     //     })
     // })
     .get((req, res, next) => {
-        return res.status(200).send("All good")
+        Word.find((err,words)=>{
+            if(err){
+                res.status(500)
+                return res.send(err)
+            }
+        
+            return res.status(200).send(words)
+        })
     })
     .post((req,res,next)=>{
         const newWord = new Word(req.body)
-        newWord.save((err, savedWord)=>{
+         newWord.save((err, savedWord)=>{
             if(err){
                 res.status(500)
                 return res.send(err)
