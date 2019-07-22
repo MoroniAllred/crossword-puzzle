@@ -1,23 +1,12 @@
-import React, {Component} from ("react")
-import axios from ("axios")
+import React from "react"
 
-class WordGetter extends Component {
-    constructor(){
-        super()
-        this.state = {
-
-        }    
-    }
-
-    axios.get("/word")
+const WordGetter = (props) => {
     
-    render(){
-        return(
-            <div>
-
-            </div>
-        )
-    }
+    return(
+        <div>
+            <h1>{props.word}</h1>
+        </div>
+    )
 }
 
 export default WordGetter
