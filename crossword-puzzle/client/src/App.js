@@ -19,7 +19,7 @@ class App extends Component {
             for(let i = 0; i < response.data.length; i++){
                 wordArr.push(response.data[i].word)
                 // console.log(wordArr)
-                this.setState({word: {...wordArr}})
+                this.setState({word: wordArr})
                 // console.log(response.data[i].word)
             }
             console.log(this.state.word)
@@ -29,13 +29,14 @@ class App extends Component {
     
     
     render() { 
-        // const allwords = this.state.word.map(words => <h1>{words}</h1>)
+        const allwords = this.state.word.map(words => <h1>{words}</h1>)
         
         return ( 
-            <div>
-                <h1 className="word" onClick={this.getWord}>
-                    {/* {allwords} */}
-                </h1>
+            <div className="word" onClick={this.getWord}>
+                {/* <h1 className="word" onClick={this.getWord}> */}
+                    {allwords}
+                    {/* {this.state.word} */}
+                {/* </h1> */}
             </div>
          );
     }
