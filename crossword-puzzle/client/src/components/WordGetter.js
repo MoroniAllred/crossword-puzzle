@@ -24,13 +24,16 @@ class WordGetter extends Component{
         
     }
 
-    // wordChooser = () => {
-    //     for(let i = 0; i> 10; i++){
-    //         const used = []
-    //         const choosen = Math.floor(Math.random() * 61)
-    //         console.log(choosen)
-    //     }
-    // }
+    wordChooser = () => {
+        for(let i = 0; i < 10; i++){
+            const used = []
+            const choosen = Math.floor(Math.random() * 61)
+            if(used.find(choosen) !== choosen){
+                used.push(choosen)
+            }
+            console.log(used)
+        }
+    }
 
     render(){
         const mappedWords=this.state.word.map(words => <h1>{words}</h1>)
