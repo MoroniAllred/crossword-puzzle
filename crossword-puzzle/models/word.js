@@ -4,7 +4,8 @@ const Schema = mongoose.Schema
 const wordSchema = new Schema({
     word: {
         type: String,
-        require: true
+        require: true,
+        lowercase: true
     }
 })
 

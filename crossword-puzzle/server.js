@@ -10,6 +10,7 @@ app.use(morgan("dev"))
 mongoose.connect("mongodb://localhost:27017/wordDb",
 {
     useNewUrlParser: true
+    // useCreateIndex: true
 })
 .then(() => console.log("connected to the database"))
 .catch(err => console.log(err))
