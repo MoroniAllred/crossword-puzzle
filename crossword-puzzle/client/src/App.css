@@ -14,7 +14,11 @@ body {
     height: auto;
 }
 
-.main-container h1{
+.main-container {
+    width: 45%;
+}
+
+.main-container h1 {
     margin-bottom: 1rem;
     /* font-size: 1rem; */
 }
