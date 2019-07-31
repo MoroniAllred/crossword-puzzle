@@ -14,6 +14,17 @@ body {
     height: auto;
 }
 
+.main-container h1{
+    margin-bottom: 1rem;
+    /* font-size: 1rem; */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
 .word {
     display: flex;
     flex-wrap: wrap;

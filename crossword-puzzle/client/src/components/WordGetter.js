@@ -6,36 +6,38 @@ class WordGetter extends Component{
         super(props);
         this.state = { 
             words: [],
+            puzzleWords: []
         }
     }
 
     componentDidMount() {
         axios.get("/word")
         .then(response => {
-            console.log(response.data)
             this.setState({words: response.data})
         }).catch(err => console.log(err))
     }
 
-    // puzzleWordGetter = () => {
-    //     const { words } = this.state
-    //     console.log(words.word)
-    //     const choosen = words[Math.floor(Math.random() * words.length)]
-    //     const puzzleWords = []
-    //     for (let i = 0; i < 10; i++) {
-    //         puzzleWords.push(choosen)
-    //     }
-    //     console.log(puzzleWords);
-    // }
+    puzzleWordGetter = () => {
+        const { words } = this.state
+        const puzzleWords = []
+        for (let i = 0; i < 10; i++) {
+            const choosen = words[Math.floor(Math.random() * words.length)]
+            puzzleWords.push(choosen)
+        }
+        this.setState({puzzleWords: puzzleWords})
+    }
 
     render(){
         return(
-            <div>
+            <div className="main-container">
                 <h1>Word Search Puzzle</h1>
-                <h4>Word List:</h4>
+                <div className="button-container">
+                    <h3>Word List:</h3>
+                    <button onClick={this.puzzleWordGetter}>Play Game</button>
+                </div>
                 <div className="puzzle-container">
                     <div className="puzzle-words">
-                        {this.state.words.map(word=> <span key={word._id} className='word'>{word.word}</span>)}
+                        {this.state.puzzleWords.map(word=> <span key={word._id} className='word'>{word.word}</span>)}
                     </div>
                     <div className="puzzle-grid">
                         <div></div>
