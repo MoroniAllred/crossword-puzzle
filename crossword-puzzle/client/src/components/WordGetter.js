@@ -5,47 +5,187 @@ class WordGetter extends Component{
     constructor(props) {
         super(props);
         this.state = { 
-            word: []
+            words: [],
         }
     }
 
-    getWord = () => {
+    componentDidMount() {
         axios.get("/word")
         .then(response => {
-            const wordArr = []
-            
-            for(let i = 0; i < response.data.length; i++){
-                wordArr.push(response.data[i].word)
-                // console.log(wordArr)
-                this.setState({word: wordArr})
-                // console.log(response.data[i].word)
-            }
-        })
-        
+            console.log(response.data)
+            this.setState({words: response.data})
+        }).catch(err => console.log(err))
     }
 
-    wordChooser = () => {
-        for(let i = 0; i < 10; i++){
-            const used = []
-            const choosen = Math.floor(Math.random() * 61)
-            if(used.find(choosen) !== choosen){
-                used.push(choosen)
-            }
-            console.log(used)
-        }
-    }
+    // puzzleWordGetter = () => {
+    //     const { words } = this.state
+    //     console.log(words.word)
+    //     const choosen = words[Math.floor(Math.random() * words.length)]
+    //     const puzzleWords = []
+    //     for (let i = 0; i < 10; i++) {
+    //         puzzleWords.push(choosen)
+    //     }
+    //     console.log(puzzleWords);
+    // }
 
     render(){
-        const mappedWords=this.state.word.map(words => <h1>{words}</h1>)
-
         return(
             <div>
-                <div className="word" onClick={this.getWord}>
-                    {mappedWords}
+                <h1>Word Search Puzzle</h1>
+                <h4>Word List:</h4>
+                <div className="puzzle-container">
+                    <div className="puzzle-words">
+                        {this.state.words.map(word=> <span key={word._id} className='word'>{word.word}</span>)}
+                    </div>
+                    <div className="puzzle-grid">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
-                <button onClick={this.wordChooser}></button>
             </div>
         )
     }
 }
-export default WordGetter
+export default WordGetter;

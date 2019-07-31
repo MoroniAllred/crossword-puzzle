@@ -1,4 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 4rem;
+}
+
+.puzzle-container {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+
 .word {
-    background-color: aquamarine;
-    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(104, 167, 146, 0.5);
+    height: 20px;
+    width: 50px;
+    margin: 5px;
+}
+
+.puzzle-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    height: 100%;
+    width: auto;
+    border: 3px solid black;
+}
+
+.puzzle-grid > div {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    height: 30px;
+    width: 30px;
+}
+
+.puzzle-words {
+    margin-right: 4rem;
 }

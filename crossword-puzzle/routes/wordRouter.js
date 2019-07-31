@@ -3,17 +3,8 @@ const wordRouter = express()
 const Word = require("../models/word.js")
 
 wordRouter.route("/")
-    // .get((req,res,next)=>{
-    //     Word.find((err, word)=>{
-    //         if(err){
-    //             res.status(500)
-    //             return res.send(err)
-    //         }
-    //         return res.status(200).send(word)
-    //     })
-    // })
     .get((req, res, next) => {
-        Word.find((err,words)=>{
+        Word.find((err, words)=>{
             if(err){
                 res.status(500)
                 return res.send(err)
@@ -32,6 +23,5 @@ wordRouter.route("/")
     //         return res.status(201).send(savedWord)
     //     })
     // })
-
 
     module.exports = wordRouter;
